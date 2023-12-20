@@ -10,19 +10,18 @@ interface ProfileCardProps {
   instagramUrl: string;
 }
 
-const ProfileCard: React.FC<ProfileCardProps & { style?: React.CSSProperties }> = ({
+const ProfileCard: React.FC<ProfileCardProps> = ({
   name,
   role,
   portraitImageUrl,
   linkedinUrl,
   twitterUrl,
   instagramUrl,
-  style,
 }) => {
   return (
     <div
       className="bg-gray-800 p-8 relative flex flex-col items-start rounded-md mb-4 mx-2"
-      style={{ width: "300px", height: "300px", ...style }}
+      style={{ width: "300px", height: "300px"}}
     >
       <h1 className="text-xl text-white font-bold mb-2">{name}</h1>
       <p className="text-lg text-green-400 mb-4">{role}</p>
