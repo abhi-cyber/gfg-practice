@@ -55,6 +55,23 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
           zIndex: 1,
         }}
       ></img>
+      <div
+        className="text-white transform rotate-90 font-righteous text-6xl opacity-50"
+        style={{
+          fontFamily: "Righteous",
+          fontSize: "76px",
+          fontStyle: "normal",
+          fontWeight: 400,
+          lineHeight: "84px",
+          letterSpacing: "2.28px",
+          position: "absolute",
+          top: "50%",
+          right: "-80px",
+          transform: "translate(0, -50%) rotate(-90deg)",
+        }}
+      >
+        {name}
+      </div>
     </div>
   );
 };
