@@ -1,4 +1,3 @@
-// components/ProfileCardRow.tsx
 import React from 'react';
 import ProfileCard from './ProfileCard';
 
@@ -7,10 +6,18 @@ interface ProfileCardRowProps {
 }
 
 const ProfileCardRow: React.FC<ProfileCardRowProps> = ({ profiles }) => {
+  const getCardStyle = (numColumns: number) => {
+    return { flexBasis: `calc(100% / ${numColumns})` };
+  };
+
   return (
-    <div className="flex flex-wrap justify-between px-20">
+    <div className="flex flex-wrap justify-center">
       {profiles.map((profile, index) => (
-        <ProfileCard key={index} {...profile} />
+        <ProfileCard
+          key={index}
+          {...profile}
+          style={getCardStyle(profiles.length >= 4 ? 4 : profiles.length)}
+        />
       ))}
     </div>
   );

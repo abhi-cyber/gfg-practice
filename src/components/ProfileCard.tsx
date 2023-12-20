@@ -1,6 +1,5 @@
-// components/ProfileCard.tsx
 import React from "react";
-import {FaLinkedin, FaTwitter, FaInstagram} from "react-icons/fa";
+import { FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
 
 interface ProfileCardProps {
   name: string;
@@ -11,18 +10,20 @@ interface ProfileCardProps {
   instagramUrl: string;
 }
 
-const ProfileCard: React.FC<ProfileCardProps> = ({
+const ProfileCard: React.FC<ProfileCardProps & { style?: React.CSSProperties }> = ({
   name,
   role,
   portraitImageUrl,
   linkedinUrl,
   twitterUrl,
   instagramUrl,
+  style,
 }) => {
   return (
     <div
       className="bg-gray-800 p-8 relative flex flex-col items-start rounded-md mb-4 mx-2"
-      style={{width: "300px", height: "300px"}}>
+      style={{ width: "300px", height: "300px", ...style }}
+    >
       <h1 className="text-xl text-white font-bold mb-2">{name}</h1>
       <p className="text-lg text-green-400 mb-4">{role}</p>
       <div className="flex space-x-4 text-white mb-4">
@@ -45,14 +46,16 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
           backgroundPosition: "center",
           filter: "blur(30px)",
           zIndex: 0,
-        }}></div>
+        }}
+      ></div>
       <img
         src={portraitImageUrl}
         className="z-50 absolute bottom-0 right-0 h-40"
         style={{
           position: "absolute",
           zIndex: 1,
-        }}></img>
+        }}
+      ></img>
     </div>
   );
 };
